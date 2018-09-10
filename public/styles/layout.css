@@ -25,7 +25,7 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- main {
+ .container {
    padding: 140px 0px;
    width: 450px;
    background-color: white;
