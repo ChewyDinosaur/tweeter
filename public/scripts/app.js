@@ -12,11 +12,11 @@ function renderTweets(tweets) {
 }
 
 function createTweetElement(tweetData) {
-  const parent =  $('<article>').addClass('tweet');
+  const article =  $('<article>').addClass('tweet');
   const header = $('<header>').html(`<img src="${tweetData.user.avatars.small}"><h3>${tweetData.user.name}</h3><p>${tweetData.user.handle}</p>`);
   const content = $('<p>').addClass('tweet-content').text(`${tweetData.content.text}`);
   const footer = $('<footer>').html(`<span>${tweetData.created_at}</span><span class="tweet-icons"><i class="fas fa-flag icons"></i><i class="fas fa-retweet icons"></i><i class="fas fa-heart icons"></i></span>`);
-  return $(parent).append(header).append(content).append(footer);
+  return $(article).append(header).append(content).append(footer);
 }
 
 function loadTweets() {
@@ -40,7 +40,7 @@ function invalidTweet() {
 
 
 
-$('document').ready(function(){
+$(function(){
 
   $('#tweet-submit').on('submit', function (event) {
     event.preventDefault();
