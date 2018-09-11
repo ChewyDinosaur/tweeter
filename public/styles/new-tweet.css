@@ -19,3 +19,10 @@
 .counter {
   float: right;
 }
+
+#tweet-error {
+  color: red;
+  font-weight: 700;
+  text-align: center;
+  display: none;
+}

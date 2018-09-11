@@ -44,26 +44,25 @@ $('document').ready(function(){
 
   $('#tweet-submit').on('submit', function (event) {
     event.preventDefault();
-    console.log('Button clicked, performing ajax call...');
-    if (!invalidTweet()) {
-      const text = $(this).serialize();
-      $.ajax('/tweets', {method: "POST", data: text})
-      .then(function() {
-        console.log('Success');
-        $('#new-tweet-textarea').val('');
-        loadTweets();
-      });
-    } else {
-      const error = invalidTweet();
-      alert(error);
-    }
+    const text = $(this).serialize();
+    $('#tweet-error').slideUp(function() {
+      if (!invalidTweet()) {
+        $.ajax('/tweets', {method: "POST", data: text})
+        .then(function() {
+          console.log('Success');
+          $('#new-tweet-textarea').val('');
+          loadTweets();
+        });
+      } else {
+        const error = invalidTweet();
+        $('#tweet-error').text(error).slideDown();
+      }
+    });
   });
 
   $('#compose-btn').click(function(e) {
     $('.new-tweet').slideToggle('slow', function() {
-      // Animation complete.
       $('#new-tweet-textarea').focus();
-
     });
   });
 
