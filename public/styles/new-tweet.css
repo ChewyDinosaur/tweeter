@@ -1,11 +1,12 @@
 .new-tweet {
   margin: 0 2em;
-  padding: 0px 6px 6px 6px;
+  padding: 10px 6px;
   background-color: #eee;
   border-radius: 5px;
 }
 
 .new-tweet h2 {
+  margin-top: 0;
   border-bottom: 1px solid black;
 }
 
@@ -14,6 +15,6 @@
   padding: 5px;
 }
 
-.new-tweet span {
+.counter {
   float: right;
 }
