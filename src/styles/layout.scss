@@ -1,4 +1,4 @@
-/* Variables */
+@import 'shared';
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
@@ -7,7 +7,6 @@
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -15,21 +14,20 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
   margin: 0 auto;
   color: #244751;
-  background-color: #eee;
-  font-family: "Roboto Condensed", sans-serif;
+  background-color: $main-grey;
+  font-family: $primary-font;
   width: 450px;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-.container {
-  padding: 140px 0px;
-  width: 450px;
-  background-color: white;
-}
-
-/*# sourceMappingURL=layout.css.map */
+ .container {
+   padding: 140px 0px;
+   width: 450px;
+   background-color: white;
+ }

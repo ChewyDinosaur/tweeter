@@ -1,4 +1,5 @@
-/* Variables */
+@import 'shared';
+
 .tweet {
   margin: 1em 2em;
   border: 1px solid rgba(80, 80, 80, 0.5);
@@ -6,17 +7,19 @@
 }
 
 .tweet:hover {
-  border: 1px solid black;
-}
-.tweet:hover header {
-  opacity: 1;
-}
-.tweet:hover .tweet-icons {
-  display: inline;
+  border: 1px solid rgba(0, 0, 0, 1);
+
+  header {
+    opacity: 1;
+  }
+
+  .tweet-icons {
+    display: inline;
+  }
 }
 
 .tweet header {
-  background-color: #eee;
+  background-color: $main-grey;
   border-radius: 5px 5px 0 0;
   padding: 6px;
   display: flex;
@@ -43,7 +46,7 @@ header img {
 
 .tweet-content {
   padding: 10px 10px 20px 10px;
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid rgb(218, 218, 218);
 }
 
 .tweet footer {
@@ -55,12 +58,10 @@ header img {
 
 .tweet-icons {
   display: none;
-  color: mediumaquamarine;
+  color: rgb(102, 205, 170);
   margin-left: auto;
 }
 
 .icons {
   margin: 0 4px;
 }
-
-/*# sourceMappingURL=tweets.css.map */

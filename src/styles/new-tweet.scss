@@ -1,8 +1,9 @@
-/* Variables */
+@import 'shared';
+
 .new-tweet {
   margin: 0 2em;
   padding: 10px 6px;
-  background-color: #eee;
+  background-color: $main-grey;
   border-radius: 5px;
   display: none;
 }
@@ -27,5 +28,3 @@
   text-align: center;
   display: none;
 }
-
-/*# sourceMappingURL=new-tweet.css.map */
