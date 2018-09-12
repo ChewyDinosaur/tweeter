@@ -41,6 +41,12 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  tweetsRoutes.post('/updateLikes', function(req, res) {
+    DataHelpers.updateLikes((callback) => {
+      console.log(callback);
+    });
+  });
+
   return tweetsRoutes;
 
 }

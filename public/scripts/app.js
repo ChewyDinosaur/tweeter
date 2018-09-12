@@ -4,18 +4,28 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+function likeTweet(event) {
+  const targetTweet = event.target;
+  console.log($(targetTweet).data('user'));
+  $(targetTweet).toggleClass('liked');
+  $.ajax('/tweets/updateLikes', { method: 'POST'});
+}
+
 function renderTweets(tweets) {
   for (let i in tweets) {
     const currentTweet = createTweetElement(tweets[i]);
     $('.tweet-container').prepend(currentTweet);
   }
+  $('.fa-heart').click(function(event){
+    likeTweet(event);
+  });
 }
 
 function createTweetElement(tweetData) {
   const article =  $('<article>').addClass('tweet');
   const header = $('<header>').html(`<img src="${tweetData.user.avatars.small}"><h3>${tweetData.user.name}</h3><p>${tweetData.user.handle}</p>`);
   const content = $('<p>').addClass('tweet-content').text(`${tweetData.content.text}`);
-  const footer = $('<footer>').html(`<span>${tweetData.created_at}</span><span class="tweet-icons"><i class="fas fa-flag icons"></i><i class="fas fa-retweet icons"></i><i class="fas fa-heart icons"></i></span>`);
+  const footer = $('<footer>').html(`<span>${tweetData.created_at}</span><span class="tweet-icons"><i class="fas fa-flag icons"></i><i class="fas fa-retweet icons"></i><i data-user="${tweetData.user.handle}" class="fas fa-heart icons"></i></span>`);
   return $(article).append(header).append(content).append(footer);
 }
 

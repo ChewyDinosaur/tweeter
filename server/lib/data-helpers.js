@@ -21,6 +21,11 @@ module.exports = function makeDataHelpers(db) {
         }
         callback(null, tweets);
       });
+    },
+
+    updateLikes: function(callback) {
+      console.log('updateLikes triggered from data-helpers!');
+      callback('callback trigger');
     }
 
   };
