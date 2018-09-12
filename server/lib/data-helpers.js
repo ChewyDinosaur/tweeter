@@ -24,31 +24,29 @@ module.exports = function makeDataHelpers(db) {
       });
     },
 
+    // db.collection('tweets').findOne({ _id: ObjectId(id) }, function(err, result) {
+    //   console.log('result.likes', result);
+    //   callback(result.likes);
+    // }),
+
     updateLikes: function(data, callback) {
       const id = data.id;
       const status = data.likeStatus;
       if (status === 'add') {
-        console.log('adding like count to tweet: ' + id);
-        db.collection('tweets').update(
-          { _id: ObjectId(id) },
-          { $set:
-            {
-              'likes': 1
-            }
-          }, callback('successful add!'),
+        db.collection('tweets').findOneAndUpdate(
+          { _id: ObjectId(id) }, 
+          { $inc : { 'likes': 1} },
+          { returnOriginal: false },
+          function(err, result){ callback(result.value.likes)}
         );
       } else if (status === 'remove') {
-        console.log('removing like count from tweet: ' + id);
-        db.collection('tweets').update(
-          { _id: ObjectId(id) },
-          { $set:
-            {
-              'likes': 0
-            }
-          }
+        db.collection('tweets').findOneAndUpdate(
+          { _id: ObjectId(id) }, 
+          { $inc : { 'likes': -1} },
+          { returnOriginal: false },
+          function(err, result){ callback(result.value.likes)}
         );
       }
-      // callback('callback trigger');
     }
 
   };
