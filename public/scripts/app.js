@@ -6,9 +6,17 @@
 
 function likeTweet(event) {
   const targetTweet = event.target;
-  console.log($(targetTweet).data('user'));
-  $(targetTweet).toggleClass('liked');
-  $.ajax('/tweets/updateLikes', { method: 'POST'});
+  let data = null;
+  console.log($(targetTweet).data('id'));
+  if ($(targetTweet).hasClass('liked')) {
+    $(targetTweet).removeClass('liked');
+    data = { likeStatus: 'remove' };
+  } else {
+    $(targetTweet).addClass('liked');
+    data = { likeStatus: 'add' };
+  }
+  
+  $.ajax('/tweets/updateLikes', { method: 'POST', data: data});
 }
 
 function renderTweets(tweets) {
@@ -25,7 +33,7 @@ function createTweetElement(tweetData) {
   const article =  $('<article>').addClass('tweet');
   const header = $('<header>').html(`<img src="${tweetData.user.avatars.small}"><h3>${tweetData.user.name}</h3><p>${tweetData.user.handle}</p>`);
   const content = $('<p>').addClass('tweet-content').text(`${tweetData.content.text}`);
-  const footer = $('<footer>').html(`<span>${tweetData.created_at}</span><span class="tweet-icons"><i class="fas fa-flag icons"></i><i class="fas fa-retweet icons"></i><i data-user="${tweetData.user.handle}" class="fas fa-heart icons"></i></span>`);
+  const footer = $('<footer>').html(`<span>${tweetData.created_at}</span><span class="tweet-icons"><i class="fas fa-flag icons"></i><i class="fas fa-retweet icons"></i><i data-id="${tweetData._id}" class="fas fa-heart icons"></i></span>`);
   return $(article).append(header).append(content).append(footer);
 }
 

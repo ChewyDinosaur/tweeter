@@ -8,8 +8,8 @@ module.exports = function makeDataHelpers(db) {
   return {
 
     // Saves a tweet to `db`
-    saveTweet: function(newTweet, callback) {
-      db.collection('tweets').insertOne(newTweet);
+    saveTweet: function(tweetData, callback) {
+      db.collection('tweets').insertOne(tweetData);
       callback(null, true);
     },
 
@@ -23,7 +23,7 @@ module.exports = function makeDataHelpers(db) {
       });
     },
 
-    updateLikes: function(callback) {
+    updateLikes: function(status, callback) {
       console.log('updateLikes triggered from data-helpers!');
       callback('callback trigger');
     }
