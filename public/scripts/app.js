@@ -6,14 +6,14 @@
 
 function likeTweet(event) {
   const targetTweet = event.target;
-  let data = null;
-  console.log($(targetTweet).data('id'));
+  const tweetID = $(targetTweet).data('id');
+  let data = { id: tweetID };
   if ($(targetTweet).hasClass('liked')) {
     $(targetTweet).removeClass('liked');
-    data = { likeStatus: 'remove' };
+    data.likeStatus = 'remove';
   } else {
     $(targetTweet).addClass('liked');
-    data = { likeStatus: 'add' };
+    data.likeStatus = 'add';
   }
   
   $.ajax('/tweets/updateLikes', { method: 'POST', data: data});

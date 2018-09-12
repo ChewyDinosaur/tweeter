@@ -42,9 +42,8 @@ module.exports = function(DataHelpers) {
   });
 
   tweetsRoutes.post('/updateLikes', function(req, res) {
-    const updateStatus = req.body.likeStatus;
-    console.log(updateStatus);
-    DataHelpers.updateLikes(updateStatus, (callback) => {
+    const data = req.body;
+    DataHelpers.updateLikes(data, (callback) => {
       console.log(callback);
     });
     res.status(201).send();
