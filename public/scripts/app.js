@@ -30,6 +30,7 @@ function renderTweets(tweets) {
     $('.tweet-container').prepend(currentTweet);
   }
   $('.fa-heart').click(function(event){
+    $(this).animate({fontSize: '15px'},100).animate({fontSize: '14px'},100);
     likeTweet(event);
   });
 }
