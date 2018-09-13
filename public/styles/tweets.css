@@ -3,6 +3,7 @@
   margin: 1em 2em;
   border: 1px solid rgba(80, 80, 80, 0.5);
   border-radius: 5px;
+  word-wrap: break-word;
 }
 
 .tweet:hover {
