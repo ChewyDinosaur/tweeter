@@ -88,9 +88,15 @@ $(function(){
   });
 
   $('#compose-btn').click(function(e) {
-    $('.new-tweet').slideToggle('slow', function() {
-      $('#new-tweet-textarea').focus();
-    });
+    if ($('.new-tweet').is(':visible')) {
+      $('.new-tweet').slideUp('slow');
+    } else {
+      $('html, body').animate({scrollTop : 0},200, function() {
+        $('.new-tweet').slideDown('slow', function() {
+          $('#new-tweet-textarea').focus();
+        });
+      });
+    }
   });
 
   loadTweets();
