@@ -9,6 +9,7 @@ const app           = express();
 const {MongoClient} = require("mongodb");
 const MONGODB_URI   = "mongodb://localhost:27017/tweeter";
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 

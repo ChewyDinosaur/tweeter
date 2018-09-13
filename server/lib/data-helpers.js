@@ -3,6 +3,8 @@
 // Simulates the kind of delay we see with network or filesystem operations
 const simulateDelay = require("./util/simulate-delay");
 const ObjectId = require('mongodb').ObjectID;
+const moment = require('moment');
+moment().format();
 
 // Defines helper functions for saving and getting tweets, using the database `db`
 module.exports = function makeDataHelpers(db) {
@@ -20,14 +22,13 @@ module.exports = function makeDataHelpers(db) {
         if (err) {
           return callback(err);
         }
+        // Apply momentjs to all tweets created_at value to display 'X time ago'
+        tweets.forEach(function(tweet) {
+          tweet.created_at = moment().to(tweet.created_at);
+        })
         callback(null, tweets);
       });
     },
-
-    // db.collection('tweets').findOne({ _id: ObjectId(id) }, function(err, result) {
-    //   console.log('result.likes', result);
-    //   callback(result.likes);
-    // }),
 
     updateLikes: function(data, callback) {
       const id = data.id;
