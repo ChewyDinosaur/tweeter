@@ -11,6 +11,7 @@ module.exports = function makeDataHelpers(db) {
     // Saves a tweet to `db`
     saveTweet: function(tweetData, callback) {
       db.collection('tweets').insertOne(tweetData);
+      tweetData.created_at = moment().to(tweetData.created_at);
       callback(null, true);
     },
 
