@@ -1,14 +1,9 @@
 
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 function likeTweet(event) {
   const targetTweet = event.target;
   const tweetID = $(targetTweet).data('id');
   let data = { id: tweetID };
+  // Change the style of the heart icon
   if ($(targetTweet).hasClass('liked')) {
     $(targetTweet).removeClass('liked');
     data.likeStatus = 'remove';
@@ -17,10 +12,19 @@ function likeTweet(event) {
     data.likeStatus = 'add';
   }
   
+  // Make the post request to update the like count
   $.ajax('/tweets/updateLikes', { method: 'POST', data: data})
   .then(function(likeCount) {
     $(`#${tweetID}-likes`).text(likeCount);
   });
+}
+
+function createTweetElement(tweetData) {
+  const article =  $('<article>').addClass('tweet');
+  const header = $('<header>').html(`<img src="${tweetData.user.avatars.small}"><h3>${tweetData.user.name}</h3><p>${tweetData.user.handle}</p>`);
+  const content = $('<p>').addClass('tweet-content').text(`${tweetData.content.text}`);
+  const footer = $('<footer>').html(`<span>${tweetData.created_at}</span><span class="tweet-icons"><i class="fas fa-flag icons"></i><i class="fas fa-retweet icons"></i><i data-id="${tweetData._id}" class="fas fa-heart icons"></i><span id="${tweetData._id}-likes">${tweetData.likes}</span></span>`);
+  return $(article).append(header).append(content).append(footer);
 }
 
 function renderTweets(tweets) {
@@ -35,20 +39,9 @@ function renderTweets(tweets) {
   });
 }
 
-
-function createTweetElement(tweetData) {
-  const timeCreated = tweetData.created_at;
-  const article =  $('<article>').addClass('tweet');
-  const header = $('<header>').html(`<img src="${tweetData.user.avatars.small}"><h3>${tweetData.user.name}</h3><p>${tweetData.user.handle}</p>`);
-  const content = $('<p>').addClass('tweet-content').text(`${tweetData.content.text}`);
-  const footer = $('<footer>').html(`<span>${timeCreated}</span><span class="tweet-icons"><i class="fas fa-flag icons"></i><i class="fas fa-retweet icons"></i><i data-id="${tweetData._id}" class="fas fa-heart icons"></i><span id="${tweetData._id}-likes">${tweetData.likes}</span></span>`);
-  return $(article).append(header).append(content).append(footer);
-}
-
 function loadTweets() {
   $.ajax('/tweets', { method: 'GET' })
   .then(function (tweets) {
-    console.log('Success: ', tweets);
     renderTweets(tweets);
   });
 }
