@@ -39,6 +39,15 @@ function renderTweets(tweets) {
   });
 }
 
+function renderNewTweet(tweet) {
+  const currentTweet = createTweetElement(tweet);
+  $(currentTweet).hide().prependTo('.tweet-container').slideDown();
+  $('.fa-heart').click(function(event){
+    $(this).animate({fontSize: '15px'},100).animate({fontSize: '14px'},100);
+    likeTweet(event);
+  });
+}
+
 function loadTweets() {
   $.ajax('/tweets', { method: 'GET' })
   .then(function (tweets) {
@@ -67,10 +76,9 @@ $(function(){
     $('#tweet-error').slideUp(function() {
       if (!invalidTweet()) {
         $.ajax('/tweets', {method: "POST", data: text})
-        .then(function() {
-          console.log('Success');
+        .then(function(tweet) {
           $('#new-tweet-textarea').val('');
-          loadTweets();
+          renderNewTweet(tweet);
         });
       } else {
         const error = invalidTweet();
