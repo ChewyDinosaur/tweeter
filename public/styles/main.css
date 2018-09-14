@@ -1,0 +1,185 @@
+/* Variables */
+/* Variables */
+#nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #00a087;
+  color: #e8fdff;
+  padding: 0em 2em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10;
+}
+
+#nav-bar .logo {
+  width: 80px;
+  height: 80px;
+}
+
+#nav-bar .header {
+  margin-left: 10px;
+  font-size: 2rem;
+}
+
+#nav-bar button {
+  margin-left: auto;
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  border: 1px solid black;
+  opacity: 0.85;
+  color: #2c9270;
+}
+
+#nav-bar button:hover {
+  opacity: 1;
+  color: black;
+}
+
+/* Variables */
+.new-tweet {
+  margin: 0 2em;
+  padding: 10px 6px;
+  background-color: #eee;
+  border-radius: 5px;
+  display: none;
+}
+
+.new-tweet h2 {
+  margin-top: 0;
+  border-bottom: 1px solid black;
+}
+
+.new-tweet textarea {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px #000;
+  border: 5px solid transparent;
+  resize: vertical;
+}
+
+#new-tweet-btn {
+  border-radius: 5px;
+}
+
+.counter {
+  float: right;
+}
+
+#tweet-error {
+  color: red;
+  font-weight: 700;
+  text-align: center;
+  display: none;
+}
+
+/* Variables */
+.tweet {
+  margin: 1em 2em;
+  border: 1px solid rgba(80, 80, 80, 0.5);
+  border-radius: 5px;
+  word-wrap: break-word;
+}
+
+.tweet:hover {
+  border: 1px solid black;
+}
+.tweet:hover header {
+  opacity: 1;
+}
+.tweet:hover .tweet-icons {
+  display: inline;
+}
+
+.tweet header {
+  background-color: #eee;
+  border-radius: 5px 5px 0 0;
+  padding: 6px;
+  display: flex;
+  position: relative;
+  opacity: 0.7;
+}
+
+header img {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.tweet header h3 {
+  margin-left: 5px;
+  line-height: 0;
+}
+
+.tweet header p {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+}
+
+.tweet-content {
+  padding: 10px 10px 20px 10px;
+  border-bottom: 1px solid #dadada;
+}
+
+.tweet footer {
+  font-size: 14px;
+  padding: 0 12px 12px 12px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tweet-icons {
+  display: none;
+  color: mediumaquamarine;
+  margin-left: auto;
+}
+
+.icons {
+  margin: 0 4px;
+}
+
+.liked {
+  color: red;
+}
+
+i {
+  width: 15px;
+}
+
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+body {
+  margin: 0 auto;
+  color: #244751;
+  background-color: #eee;
+  font-family: "Roboto Condensed", sans-serif;
+  width: 450px;
+}
+
+.container {
+  padding: 140px 0px;
+  width: 450px;
+  background-color: white;
+}
+
+/*# sourceMappingURL=main.css.map */
