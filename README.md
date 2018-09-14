@@ -4,7 +4,7 @@ Tweeter is a simple, single-page Twitter clone powered by Express, MongoDB, and 
 
 [You can view a Heroku hosted version of the app here.](https://frozen-ravine-43182.herokuapp.com/)
 
-Users are able to like tweets, and submit new tweets and will be assigned a random name, handle and avatar when doing so.
+Users are able to submit new tweets and will be assigned a random name, handle and avatar when doing so. Users can also "like" other tweets.
 
 ![Tweeter App](https://github.com/ChewyDinosaur/tweeter/blob/master/docs/app.gif)
 
@@ -12,7 +12,7 @@ Users are able to like tweets, and submit new tweets and will be assigned a rand
 
 * After cloning the repo, run `npm install` to install the dependencies.
 * Run the server using the `npm start` command.
-* Tweeter will then be accessable at localhost:8080
+* Tweeter will then be accessible at localhost:8080
 
 ## Dependencies
 
