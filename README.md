@@ -1,17 +1,26 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone powered by Express, MongoDB, and jQuery.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+[You can view a Heroku hosted version of the app here.](https://frozen-ravine-43182.herokuapp.com/)
 
-## Getting Started
+Users are able to like tweets, and submit new tweets and will be assigned a random name, handle and avatar when doing so.
 
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+![Tweeter App](https://github.com/ChewyDinosaur/tweeter/blob/master/docs/app.gif)
+
+## Setup
+
+* After cloning the repo, run `npm install` to install the dependencies.
+* Run the server using the `npm start` command.
+* Tweeter will then be accessable at localhost:8080
 
 ## Dependencies
 
 - Express
-- Node 5.10.x or above
+- Nodejs
+- Body Parser
+- Momentjs
+- Chance
+- dotenv
+- Md5
+- Mongodb
