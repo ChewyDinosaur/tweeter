@@ -78,6 +78,7 @@ $(function(){
         $.ajax('/tweets', {method: "POST", data: text})
         .then(function(tweet) {
           $('#new-tweet-textarea').val('');
+          $('.counter').text(140);
           renderNewTweet(tweet);
         });
       } else {
