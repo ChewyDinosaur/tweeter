@@ -6,7 +6,7 @@ Tweeter is a simple, single-page Twitter clone powered by Express, MongoDB, and 
 
 Users are able to submit new tweets and will be assigned a random name, handle and avatar when doing so. Users can also "like" other tweets.
 
-![Tweeter App](https://github.com/ChewyDinosaur/tweeter/blob/master/docs/app.gif)
+![Tweeter App](https://github.com/ChewyDinosaur/tweeter/blob/master/docs/appNew.gif)
 
 ## Setup
 
