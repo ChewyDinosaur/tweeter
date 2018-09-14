@@ -13,7 +13,7 @@ function likeTweet(event) {
   }
   
   // Make the post request to update the like count
-  $.ajax('/tweets/updateLikes', { method: 'POST', data: data})
+  $.ajax('/tweets/updateLikes', {method: 'POST', data: data})
   .then(function(likeCount) {
     $(`#${tweetID}-likes`).text(likeCount);
   });
@@ -49,7 +49,7 @@ function renderNewTweet(tweet) {
 }
 
 function loadTweets() {
-  $.ajax('/tweets', { method: 'GET' })
+  $.ajax('/tweets', {method: 'GET'})
   .then(function (tweets) {
     renderTweets(tweets);
   });
@@ -75,8 +75,9 @@ $(function(){
     const text = $(this).serialize();
     $('#tweet-error').slideUp(function() {
       if (!invalidTweet()) {
-        $.ajax('/tweets', {method: "POST", data: text})
+        $.ajax('/tweets', {method: 'POST', data: text})
         .then(function(tweet) {
+          // Reset the text box after submitting tweet
           $('#new-tweet-textarea').val('');
           $('.counter').text(140);
           renderNewTweet(tweet);
