@@ -11,6 +11,11 @@ Users are able to submit new tweets and will be assigned a random name, handle a
 ## Setup
 
 * After cloning the repo, run `npm install` to install the dependencies.
+* Create a .env file in the directory, and include the following:
+```
+MONGODB_URI='mongodb://localhost:27017/tweeter
+PORT=8080
+```
 * Run the server using the `npm start` command.
 * Tweeter will then be accessible at localhost:8080
 
